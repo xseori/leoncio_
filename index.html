@@ -1,813 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<style>
-     
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background: #CD83F7;
-    color: #590d6c;
-}
-
-.header {
-    background: #E0ADFD;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
-
-.logo {
-    position: relative;
-    font-size:  25px;
-    color: #BE5985;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.logo:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: E0ADFD;
-    animation: showRight 1s ease forwards;
-    animation-delay: .4s;
-}
-
-.navbar a {
-    font-size: 18px;
-    color: #BE5985;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 35px;
-    border-bottom: 4px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.navbar a:hover,
-.navbar a.active-link {
-    color: #EC7FA9;
-    border-color: #EC7FA9;
-}
-
-.home {
-    height: auto; 
-    min-height: 100vh;
-    padding: 100px 10%; 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-.home-content {
-    max-width: 600px;
-}
-
-.home-content h1 {
-    position: relative;
-    font-size: 56px;
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-.home-content h1::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: #FFEDFA;
-    animation: showRight 1s ease forwards;
-    animation-delay: 1s;
-}
-
-.home-content h3 {
-    position: relative;
-    font-size: 32px;
-    font-weight: 700;
-    color: #86379a;
-}
-
-.home-content h3::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: #FFEDFA;
-    animation: showRight 1s ease forwards;
-    animation-delay: 1.3s;
-}
-
-.home-content p {
-    position: relative;
-    font-size: 24px;
-    margin: 20px 0 40px;
-}
-
-.home-content p::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: #FFEDFA;
-    animation: showRight 1s ease forwards;
-    animation-delay: 1.6s;
-}
-
-.home-content .btn-box {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    width: 345px;
-    height: 50px;
-}
-
-.home-content .btn-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: #86379a;
-    animation: showRight 1s ease forwards;
-    animation-delay: 1.9s;
-    z-index: 2;
-}
-
-.btn-box a {
-    position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 100%;
-    background: #EC7FA9;
-    border: 2px solid #86379a;
-    border-radius: 8px;
-    font-size: 19px;
-    color: #FFEDFA;
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 1px;
-    z-index: 1;
-    overflow: hidden;
-    transition: .5s;
-}
-
-.btn-box a:hover {
-    color: #EC7FA9;
-}
-
-.btn-box a:nth-child(2) {
-    background: transparent;
-    color: #86379a;
-}
-
-.btn-box a:nth-child(2):hover {
-    color: #86379a;
-}
-
-.btn-box a:nth-child(2)::before {
-    background: #EC7FA9;
-}
-
-.btn-box a:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: #FFEDFA;
-    z-index: -1;
-    transition: .5s;
-}
-
-.btn-box a:hover::before {
-    width: 100%;
-}
-
-.home-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.home-image img {
-    max-width: 90%;
-    height: auto;
-    border-radius: 10px;
-    border: 4px solid #EC7FA9;
-}
-
-.home-sci {
-    position: absolute;
-    bottom: 40px;
-    width: 170px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.home-sci::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: #FFEDFA;
-    animation: showRight 1s ease forwards;
-    animation-delay: 2.5s;
-    z-index: 2;
-}
-.home-sci a {
-    position: relative;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    border: 2px solid #86379a;
-    border-radius: 50%;
-    font-size: 20px;
-    color: #86379a;
-    text-decoration: none;
-    z-index: 1;
-    overflow: hidden;
-    overflow: .5s;
-}
-
-.home-sci a:hover {
-    color: #FFEDFA;
-}
-
-.home-sci a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: #EC7FA9;
-    z-index: -1;
-    transition: .5s;
-}
-
-.home-sci a:hover::before {
-    width: 100%;
-}
-
-.home-imgHover {
-    position: absolute;
-    top: 0;
-    right: 30px;
-    width: 700px;
-    height: 100%;
-    background: transparent;
-    transition: 3s;
-    animation: manipactiveHoveris forwards;
-    animation-delay: 4s;
-}
-
-.about-content {
-    width: 100vw;
-    height: 100vh;
-  display: flex;
-  padding: 40px;
-}
-
-.left {
-  flex: 1;
-  text-align: center;
-}
-
-.profile-pic {
-  width: 450px;
-  border-radius: 20px;
-  border: 4px solid #EC7FA9;
-}
-
-.right {
-  flex: 2;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 64px;
-  margin-bottom: 10px;
-}
-
-h3 {
-  font-size: 28px;
-}
-
-p {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.tabs {
-  margin-top: 20px;
-}
-
-.tab {
-  background: none;
-  color: #BE5985;
-  border: none;
-  font-size: 28px;
-  margin-right: 20px;
-  padding: 10px;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  font-weight: bolder;
-}
-
-.tab.active {
-  color: #EC7FA9;
-  border-color: #EC7FA9;
-}
-
-.tab-content {
-  display: none;
-  margin-top: 20px;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-
-@keyframes showRight {
-    100% {
-        width: 0;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hannaneah Leoncio - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-r4hVl4rB+1hQ1kXgr8pR/UO3Yl4KHYFZ5bC+MbdmBvJWZs8mYYGgAZDP0f5fsG5b0b6VBXTlPH9VmFV6Rh4AXA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+        #contact form {
+      background-color: var(--card);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 0 auto;
     }
-}
 
-.manipactive:hover {
-        pointer-events: auto;
+    #contact input,
+    #contact textarea {
+      font-size: 1em;
+      margin-top: 15px;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      background-color: var(--background);
+      color: var(--text);
+      transition: border-color 0.3s, background 0.3s;
+    }
 
-}
+    #contact input:focus,
+    #contact textarea:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      background-color: #f0eaff;
+    }
 
-.heading {
-    font-size: 5rem;
-    margin-bottom: 3rem;
-    text-align: left;
-    font-size: 64px;
-}
+    #contact button {
+      margin-top: 20px;
+      background-color: var(--primary);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
+    #contact button:hover {
+      background-color: var(--primary-light);
+    }
 
-.btn-box.btns {
-    display: inline-block;
-    width: 15rem;
-}
+    :root {
+      --primary: #6a0dad;
+      --primary-light: #a066d1;
+      --background: #f9f7fc;
+      --text: #333;
+      --card: #fff;
+    }
 
-.btn-box.btn a::before {
-    background: var(--second-bg-color);
-}
+    body.dark {
+      --background: #1e1e2f;
+      --text: #f0eaff;
+      --card: #2b2b40;
+    }
 
-.services-section {
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-    background-color: #f3e3f7;
-    text-align: center;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.services-section h2 {
-    margin-bottom: 40px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.services-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
 
-.service-item {
-    background-color: #db95ec;
-    border: 1px solid #EC7FA9;
-    border-radius: 10px;
-    box-shadow: 4px 4px 8px rgba(231, 51, 201, 0.164);
-    overflow: hidden;
-    padding: 20px;
-    width: 450px;
-    text-align: left;   
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
 
-.service-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
+    header h1 {
+      font-size: 2.5em;
+    }
 
-.service-item i {
-    font-size: 60px;
-}
+    nav {
+      background: #4b077d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
 
-.service-item h3 {
-    margin: 15px 0;
-    font-size: 28px;
-    color: #BE5985;
-}
+    nav .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
 
-.service-item p {
-    color: #BE5985;
-    font-size: 24px;
-    line-height: 1.5;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+    }
 
-.service-item a {
-    color: #BE5985;
-    font-size: 24px;
-    line-height: 1.5;
-}
+    nav a:hover {
+      background-color: var(--primary-light);
+      border-radius: 5px;
+    }
 
-.portfolio-section {
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-    background-color: #edc9f5;
-}
+    .toggle-btn, .dark-mode-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-left: 10px;
+    }
 
-.portfolio-section h2 {
-    margin-bottom: 40px;
-}
+    .toggle-btn {
+      display: none;
+    }
 
-.portfolio-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 0;
+    }
 
-.portfolio-item {
-    background-color: #e5b4f1;
-    border: 1px solid #EC7FA9;
-    border-radius: 10px;
-    box-shadow: 4px 4px 8px rgba(231, 51, 201, 0.164);
-    overflow: hidden;
-    padding: 20px;
-    width: 450px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    padding-top: 20px;
-}
+    section {
+      margin-bottom: 50px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
 
-.portfolio-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-.portfolio-item h3 {
-    margin: 15px 0;
-    font-size: 28px;
-    color: #BE5985;
-}
+    h2 {
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 5px;
+      color: var(--primary);
+    }
 
-.portfolio-item p {
-    margin: 15px 0;
-    font-size: 24px;
-    color: #BE5985;
-}
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+    }
 
-.see-more-button {
-    width: 200px;
-    height: 50px;
-    margin-top: 50px;
-    padding: 10px 20px;
-    background-color: #D96DF3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 20px;
-    transition: background-color 0.3s ease;
-}
+    .about-text {
+      flex: 2;
+    }
 
-.see-more-button:hover {
-    background-color: #BE5985;
-}
+    .profile-pic {
+      flex: 1;
+      max-width: 200px;
+    }
 
-.contact {
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-    background-color: #f2befe;
-}
+    .profile-pic img {
+      width: 100%;
+      border-radius: 50%;
+      border: 4px solid var(--primary);
+    }
 
-.row {
-    display: flex;
-    flex-direction: row;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-.contact-left {
-    flex: 1;
-    margin-right: 5px;
-    min-width: 250px;
-    justify-content: left;
-}
+    .service {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(106, 13, 173, 0.1);
+      transition: transform 0.3s ease, background 0.3s;
+    }
 
-.contact-right {
-    flex: 1;
-    min-width: 250px;
-}
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(106, 13, 173, 0.2);
+    }
 
-.contact-left h1 {
-    margin: 10px 0;
-    font-size: 64px;
-}
+    a {
+      color: var(--primary);
+    }
 
-.contact-left p {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 28px;
-}
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
 
-.contact-left p i {
-    font-size: 48px;
-}
+    .social-icons {
+      margin-top: 15px;
+    }
 
-.download-btn {
-    position: relative;
-    display: inline-flex;
-    margin-top: 30px;
-    width: 200px;
-    height: 50px;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    
-}
+    .social-icons a {
+      margin-right: 10px;
+      font-size: 1.5em;
+      color: var(--primary);
+      transition: color 0.3s ease;
+    }
 
-.btn {
-    background-color: #d76df1;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
+    .social-icons a:hover {
+      color: var(--primary-light);
+    }
 
-.btn2:hover {
-    background-color: #EC7FA9;
-}
+    footer {
+      background: #2d004d;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
 
-form input {
-    width: 100%;
-    height: 80px;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #BE5985;
-    border-radius: 5px;
-    background: #f7e2fc;
-    color: #BE5985;
-    font-size: 20px;
-}
+    @media (max-width: 768px) {
+      .toggle-btn {
+        display: block;
+      }
 
-form textarea {
-    width: 100%;
-    height: 160px;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #BE5985;
-    border-radius: 5px;
-    background: #f7e2fc; 
-    color: #BE5985;
-    font-size: 20px;
-    resize: none;
-}
+      .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+      }
 
-.contact-right input::placeholder,
-.contact-right textarea::placeholder {
-    color: #BE5985;
-}
+      .menu.show {
+        display: flex;
+      }
 
-.submit-btn {
-    position: relative;
-    display: inline-flex;
-    margin-top: 30px;
-    width: 250px;
-    height: 70px;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    
-}
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-span#msg {
-    display: block;
-    margin-top: 20px;
-    color: #BE5985;
-}
+      nav a {
+        width: 100%;
+        padding-left: 20px;
+      }
 
-</style>
-
+      .about-section {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
 <body>
-    
-    <header class="header">
-        <a href="#" class="logo">My Portfolio</a>
+  <header>
+    <h1>Hannaneah Leoncio</h1>
+    <p>Creative IT Student & Web Designer</p>
+  </header>
 
-        <nav class="navbar">
-            <a href="#" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#contacts">Contact</a>
-        </nav>
-    </header>
+  <nav>
+    <button class="toggle-btn" onclick="toggleMenu()">☰ Menu</button>
+    <div class="menu" id="menu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+  </nav>
 
-    <section class="home">
-        <div class="home-content">
-            <h1>Halo, I'm Hannaneah B. Leoncio</h1>
-            <h3>IT Student</h3>
-            <p>Currently attending at Global Reciprocal Colleges</p>
-            <div class="btn-box">
-                <a href="#about">About Me</a>
-                <a href="#">See More</a>
-            </div>
-        </div>
-        <div class="home-image">
-            <img src="hana.jpg" alt="img">
-        </div>
-        <div class="home-sci">
-            <a href="https://www.facebook.com/hannaneahleoncio002/" target="_blank" rel="noopener" rel="noreferrer"><i class='bx bxl-facebook'></i></a>
-            <a href="https://www.tiktok.com/@xseori?lang=en"><i class='bx bxl-tiktok'></i></a>
-            <a href="https://www.instagram.com/xganyuu_/" target="_blank" rel="noopener" rel="noreferrer"><i class='bx bxl-instagram-alt'></i></a>
-        </div>
+  <div class="container">
+    <section id="home" class="fade-in">
+      <h2>Welcome</h2>
+      <p>Hello! I'm Hannaneah B. Leoncio, a passionate IT student who loves creating clean and functional websites. I enjoy blending creativity with code — and yes, I absolutely love cats! 🐱</p>
     </section>
 
-    <section id="about">
-    <div class="about-content">
-        <div class="left">
-          <img src="hana 1.jpg" alt="Profile Picture" class="profile-pic">
+    <section id="about" class="fade-in">
+      <h2>About Me</h2>
+      <div class="about-section">
+        <div class="about-text">
+          <p>Halo, I'm a 1st year college student at Global Reciprocal Colleges. I'm a female born on February 18, 2006 (currently 19 years old)</p> 
+          <p>My skills include:</p>
+          <ul>
+            <li>MS Word, Excel, PowerPoint</li>
+            <li>Photoshop, HTML, CSS</li>
+            <li>Currently learning other programming languages</li>
+          </ul>
+          <p>Soft skills:</p>
+          <ul>
+            <li>Adaptability</li>
+            <li>Active Listening</li>
+            <li>Time Management</li>
+          </ul>
         </div>
-        <div class="right">
-          <h1>About Me</h1>
-          <p>
-            Halo, I'm Hannaneah B. Leoncio, a 1st year college student at Global Reciprocal Colleges,
-            My skills includes MS Word, Excel, PowerPoint, Photoshop, HTML, CSS, and I am currently learning other programming language as an IT student (I love cats :3)
-          </p>
-    
-          <div class="tabs">
-            <button class="tab active" onclick="showTab('skills')">Skills</button>
-            <button class="tab" onclick="showTab('experience')">Work Experience</button>
-            <button class="tab" onclick="showTab('education')">Educational Background</button>
-          </div>
-    
-          <div id="skills" class="tab-content active">
-            <h3>Soft Skills</h3>
-            <p>Adaptability, Active Listening, Time Management</p>
-          </div>
-    
-          <div id="experience" class="tab-content">
-            <p>N/A</p>
-          </div>
-    
-          <div id="education" class="tab-content">
-            <h3>2024 - Present</h3>
-            <p>Global Reciprocal Colleges - BSIT</p>
-            <h3>2022 - 2024</h3>
-            <p>Electron College of Technical Education - GAS</p>
-            <h3>2018 - 2022</h3>
-            <p>Caloocan High School</p>
-            <h3>2012 - 2018</h3>
-            <p>Morning Breeze Elementary School</p>
-          </div>
+        <div class="profile-pic">
+          <img src="hana.jpg" alt="img">
         </div>
       </div>
     </section>
-    
 
-    <section id="services" class="services-section">
-        <h2 class="heading">My Services</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <i class='bx bx-camera'></i>
-                <h3>Photo Editing</h3>
-                <p>Photo Editing Services. eg. Logo, Banner  etc. using Photoshop or Canva</p>
-                <a href="#">Learn more</a>
-            </div>
-            <div class="service-item">
-                <i class='bx bx-camera-movie'></i>
-                <h3>Video Editing</h3>
-                <p>Video Edting Services like editing a short film, etc.</p>
-                <a href="#">Learn more</a>
-            </div>
-            <div class="service-item">
-                <i class='bx bx-pen'></i>
-                <h3>Web Development</h3>
-                <p>Web Developing Services using HTML,CSS, and Javascript</p>
-                <a href="#">Learn more</a>
-            </div>
+    <section id="services" class="fade-in">
+      <h2>Services</h2>
+      <div class="services-grid">
+        <div class="service">
+          <h3>Photo Editing</h3>
+          <p>Creative and professional image enhancements using tools like Photoshop.</p>
         </div>
-    </section>
-    
-
-    <section id="portfolio" class="portfolio-section">
-        <h2 class="heading">My Portfolio</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <h3>Photoshop Projects</h3>
-                <p>This contains all of my projects using Photoshop</p>
-                <button class="see-more-button">See More</button>
-            </div>
-            <div class="portfolio-item">
-                <h3>WebDev Projects</h3>
-                <p>This contains all of my projects in WebDev</p>
-                <button class="see-more-button">See More</button>
-            </div>
-            <div class="portfolio-item">
-                <h3>Other Projects</h3>
-                <p>This contains all of my other projects...</p>
-                <button class="see-more-button">See More</button>
-            </div>
+        <div class="service">
+          <h3>Video Editing</h3>
+          <p>Engaging edits for social media or presentations with smooth transitions and effects.</p>
         </div>
+        <div class="service">
+          <h3>Web Development</h3>
+          <p>Responsive and attractive websites built with HTML and CSS — mobile-friendly and clean.</p>
+        </div>
+      </div>
     </section>
 
-    <section id="contacts" class="contact">
-                <div class="row">
-                    <div class="contact-left">
-                        <h1 class="sub-title">Contact Me</h1>
-                        <p><i class="bx bx-envelope"></i>hannaneahleoncio@gmail.com</p>
-                        <p><i class="bx bx-phone"></i> 09763683534</p>
-                        <a href="images/home.jpeg" download class="btn btn2 download-btn">Download CV</a>
-                    </div>
-                    <div class="contact-right">
-                       <form method="post" action="https://script.google.com/macros/s/AKfycbxQASjWbOxWSeu9oZqOxNSSCnwgrTkTbbXvw9ia67p0vypKVi6DvEG72zISgEi1VjSqSw/exec" name="contact-form">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <textarea name="message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn btn2 submit-btn">Submit</button>
-                       </form>
-                    </div>
-                </div>
-            </div>
+    <section id="gallery" class="fade-in">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project">
+          <h3>Portfolio Website</h3>
+          <p>A responsive, animated personal website built with HTML and CSS. Features dark mode, animations, and contact form.</p>
+        </div>
+        <div class="project">
+          <h3>Photo Edits Showcase</h3>
+          <p>Collection of creative photo edits using Photoshop for various clients and projects.</p>
+        </div>
+        <div class="project">
+          <h3>Video Edits Collection</h3>
+          <p>Short clips edited for social platforms using transitions, overlays, and motion graphics.</p>
+        </div>
+      </div>
     </section>
-    
-    <script>
-        function showTab(tabId) {
-  const tabs = document.querySelectorAll(".tab");
-  const contents = document.querySelectorAll(".tab-content");
 
-  tabs.forEach(tab => tab.classList.remove("active"));
-  contents.forEach(content => content.classList.remove("active"));
+    <section id="contact" class="fade-in">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:hannaneahleoncio@gmail.com">hannaneahleoncio@gmail.com</a></p>
+      <p>Facebook: <a href="https://www.facebook.com/hannaneahleoncio002/" target="_blank">facebook.com/hannaneahleoncio002</a></p>
+      <p>Instagram: <a href="https://www.instagram.com/xganyuu_/" target="_blank">@xganyuu_</a></p>
+      <p>TikTok: <a href="https://www.tiktok.com/@xseori?lang=en" target="_blank">@xseori</a></p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/hannaneahleoncio002/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/xganyuu_/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@xseori?lang=en" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <form action="https://formspree.io/f/mzzgedgb" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </div>
 
-  document.querySelector(`[onclick="showTab('${tabId}')"]`).classList.add("active");
-  document.getElementById(tabId).classList.add("active");
-}
+  <footer>
+    <p>&copy; 2025 Hannaneah B. Leoncio. All rights reserved.</p>
+  </footer>
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxQASjWbOxWSeu9oZqOxNSSCnwgrTkTbbXvw9ia67p0vypKVi6DvEG72zISgEi1VjSqSw/exec'
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
+    }
 
-const form = document.forms['contact-form']
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
 
-form.addEventListener('submit', e => {
-  
-  e.preventDefault()
-  
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-  .then(response => alert("Thank you! Form is submitted" ))
-  .then(() => { window.location.reload(); })
-  .catch(error => console.error('Error!', error.message))
-})
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-    </script>
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
